@@ -6,7 +6,7 @@ services:
     region: oregon
     branch: main
     buildCommand: "pip install -r requirements.txt && python scripts/ingest_catalog.py"
-    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    startCommand: "python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     healthCheckPath: /health
     autoDeploy: true
     envVars:
