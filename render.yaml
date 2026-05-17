@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: shl-recommender
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: "pip install -r requirements.txt && python scripts/ingest_catalog.py"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: GROQ_MODEL
+        value: llama-3.1-8b-instant
+      - key: HF_HUB_DISABLE_SYMLINKS_WARNING
+        value: "1"
+      - key: GROQ_API_KEY
+        sync: false

@@ -1,0 +1,11 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic>=2.5,<3
+fastembed==0.4.2
+faiss-cpu==1.8.0
+rank-bm25==0.2.2
+numpy<2.0
+requests==2.32.3
+python-dotenv==1.0.1
+json-repair==0.30.0
+groq>=1.2.0,<2
